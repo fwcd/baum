@@ -1,5 +1,6 @@
 import argparse
 
+from treeify.options import Options
 from treeify.parse import parse
 from treeify.generate import generate
 
@@ -9,8 +10,11 @@ def main():
     parser.add_argument('expr', type=str, help='The parenthesized tree expression')
 
     args = parser.parse_args()
+    opts = Options(
+        ascii_only=args.ascii
+    )
 
     node = parse(args.expr)
-    generated = generate(node, ascii_only=args.ascii)
+    generated = generate(node, opts)
 
     print(generated)
