@@ -26,7 +26,7 @@ def skip_whitespace(state: ParseState):
 
 def parse_identifier(state: ParseState) -> str:
     ident = ''
-    while state.current not in PUNCTUATION.union(WHITESPACE):
+    while state.current not in PUNCTUATION:
         ident += state.current
         state.i += 1
     return ident
@@ -55,7 +55,6 @@ def parse_expr(state: ParseState) -> Node:
 
     # Parse name identifier
     name = parse_identifier(state)
-    skip_whitespace(state)
 
     # Parse children
     if state.current in OPENING:
@@ -73,7 +72,7 @@ def parse_expr(state: ParseState) -> Node:
 
         expect_closing(state)
 
-    return Node(name, children)
+    return Node(name.strip(), children)
 
 def parse(raw: str) -> Node:
     return parse_expr(ParseState(raw))
