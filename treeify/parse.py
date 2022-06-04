@@ -4,7 +4,9 @@ from treeify.node import Node
 OPENING = {'[', '('}
 CLOSING = {']', ')'}
 EOF = '<EOF>'
-BRACKETS = OPENING.union(CLOSING)
+COMMA = ','
+WHITESPACE = {' ', '\t'}
+PUNCTUATION = OPENING.union(CLOSING).union({EOF, COMMA})
 
 @dataclass
 class ParseState:
@@ -19,18 +21,18 @@ class ParseState:
             return EOF
 
 def skip_whitespace(state: ParseState):
-    while state.current == ' ':
+    while state.current in WHITESPACE:
         state.i += 1
 
 def parse_identifier(state: ParseState) -> str:
     ident = ''
-    while state.current not in BRACKETS and state.current != EOF:
+    while state.current not in PUNCTUATION.union(WHITESPACE):
         ident += state.current
         state.i += 1
     return ident
 
 def parse_comma(state: ParseState) -> bool:
-    if state.current == ',':
+    if state.current == COMMA:
         state.i += 1
         return True
     else:
@@ -38,30 +40,36 @@ def parse_comma(state: ParseState) -> bool:
 
 def expect_opening(state: ParseState):
     if state.current not in OPENING:
-        raise ValueError(f'Expected opening bracket at {state.i})')
+        raise ValueError(f'Expected opening bracket at {state.i}')
     state.i += 1
 
 def expect_closing(state: ParseState):
     if state.current not in CLOSING:
-        raise ValueError(f'Expected closing bracket at {state.i})')
+        raise ValueError(f'Expected closing bracket at {state.i}')
     state.i += 1
 
 def parse_expr(state: ParseState) -> Node:
     children = []
 
     skip_whitespace(state)
+
+    # Parse name identifier
     name = parse_identifier(state)
     skip_whitespace(state)
 
+    # Parse children
     if state.current in OPENING:
         expect_opening(state)
+        skip_whitespace(state)
 
-        skip_whitespace(state)
-        children.append(parse_expr(state))
-        skip_whitespace(state)
-        if parse_comma(state):
-            skip_whitespace(state)
+        if state.current not in CLOSING:
             children.append(parse_expr(state))
+            skip_whitespace(state)
+
+            if parse_comma(state):
+                skip_whitespace(state)
+                children.append(parse_expr(state))
+                skip_whitespace(state)
 
         expect_closing(state)
 
