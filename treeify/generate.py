@@ -22,7 +22,7 @@ def generate_node(node: Node, opts: Options, kind: NodeKind=NodeKind.DEFAULT) ->
 
     yield prefix + node.name
     for i, child in enumerate(node.children):
-        indent = '' if kind == NodeKind.ROOT else '  '
+        indent = '' if kind == NodeKind.ROOT else '  ' if opts.ascii_only or kind == NodeKind.LAST else '│ '
         child_kind = NodeKind.LAST if i == len(node.children) - 1 else NodeKind.DEFAULT
         yield from prefix_with(indent, list(generate_node(child, opts, child_kind)))
 
