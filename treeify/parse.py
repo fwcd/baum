@@ -66,7 +66,7 @@ def parse_expr(state: ParseState) -> Node:
             children.append(parse_expr(state))
             skip_whitespace(state)
 
-            if parse_comma(state):
+            while parse_comma(state):
                 skip_whitespace(state)
                 children.append(parse_expr(state))
                 skip_whitespace(state)
