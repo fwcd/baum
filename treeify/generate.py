@@ -1,4 +1,5 @@
 from treeify.node import Node
 
-def generate_tree(node: Node, ascii_only: bool) -> str:
-    raise NotImplementedError()
+def generate(node: Node, ascii_only: bool) -> str:
+    # TODO: Implement this
+    return str(node)

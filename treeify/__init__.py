@@ -1,7 +1,7 @@
 import argparse
 
-from treeify.parse import parse_expr
-from treeify.generate import generate_tree
+from treeify.parse import parse
+from treeify.generate import generate
 
 def main():
     parser = argparse.ArgumentParser(description='Generates ASCII/Unicode trees')
@@ -10,7 +10,7 @@ def main():
 
     args = parser.parse_args()
 
-    node = parse_expr(args.expr)
-    generated = generate_tree(node, ascii_only=args.ascii)
+    node = parse(args.expr)
+    generated = generate(node, ascii_only=args.ascii)
 
     print(generated)
