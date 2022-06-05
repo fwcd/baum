@@ -23,7 +23,8 @@ def generate_node(node: Node, opts: Options, kind: NodeKind=NodeKind.DEFAULT) ->
             prefix = '-' if opts.ascii_only else '└─'
         else:
             raise ValueError(f'Unimplemented node kind: {kind}')
-        prefix = f'{prefix} '
+        if not opts.no_space:
+            prefix = f'{prefix} '
 
     # Compute indent
     if kind == NodeKind.ROOT:
