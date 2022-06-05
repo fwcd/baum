@@ -10,32 +10,34 @@ treeify "this [is [an, example, tree], with [a, bunch, of, nodes]]"
 
 ```
 this
-├─is
-│ ├─an
-│ ├─example
-│ └─tree
-└─with
-  ├─a
-  ├─bunch
-  ├─of
-  └─nodes
+├─ is
+│  ├─ an
+│  ├─ example
+│  └─ tree
+└─ with
+   ├─ a
+   ├─ bunch
+   ├─ of
+   └─ nodes
 ```
 
-Alternatively, the output can be configured to use ASCII characters only:
+In addition to the default style, which is `unicode`, a number of other styles are supported, which can be set via the `--style` flag, e.g.:
 
 ```sh
-treeify --ascii "this [is [an, example, tree], with [a, bunch, of, nodes]]"
+treeify --style ascii "this [is [an, example, tree], with [a, bunch, of, nodes]]"
 ```
 
 ```
 this
-- is
-  - an
-  - example
-  - tree
-- with
-  - a
-  - bunch
-  - of
-  - nodes
++- is
+|  +- an
+|  +- example
+|  \- tree
+\- with
+   +- a
+   +- bunch
+   +- of
+   \- nodes
 ```
+
+Run `treeify --help` for a complete overview.
