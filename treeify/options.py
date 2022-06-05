@@ -1,6 +1,7 @@
 from dataclasses import dataclass
+from treeify.style import Style
 
 @dataclass
 class Options:
-    ascii_only: bool
+    style: Style
     spaces: int
