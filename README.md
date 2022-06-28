@@ -40,4 +40,23 @@ this
    \- nodes
 ```
 
+Or even emoji for visualizing file trees:
+
+```sh
+treeify --style emoji "this [is [an [], example [], tree []], with [a, bunch, of, nodes]]"
+```
+
+```
+📁 this
+  📁 is
+    📁 an
+    📁 example
+    📁 tree
+  📁 with
+    📄 a
+    📄 bunch
+    📄 of
+    📄 nodes
+```
+
 Run `treeify --help` for a complete overview.
