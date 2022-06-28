@@ -17,7 +17,9 @@ def generate_node(node: Node, opts: Options, kind: NodeKind=NodeKind.DEFAULT) ->
     if kind == NodeKind.ROOT:
         prefix = ''
     else:
-        if kind == NodeKind.DEFAULT:
+        if not node.children and opts.style.leaf_prefix:
+            prefix = opts.style.leaf_prefix
+        elif kind == NodeKind.DEFAULT:
             prefix = opts.style.t_prefix
         elif kind == NodeKind.LAST:
             prefix = opts.style.last_prefix

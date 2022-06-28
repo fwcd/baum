@@ -1,10 +1,12 @@
 from dataclasses import dataclass
+from typing import Optional
 
 @dataclass
 class Style:
     indent_prefix: str
     t_prefix: str
     last_prefix: str
+    leaf_prefix: Optional[str] = None
     include_root: bool = False
 
 STYLES = {
@@ -19,5 +21,5 @@ STYLES = {
     'empty': Style(indent_prefix='', t_prefix='', last_prefix=''),
     'compact': Style(indent_prefix='│', t_prefix='├', last_prefix='└'),
     'unicode': Style(indent_prefix='│', t_prefix='├─', last_prefix='└─'),
-    'emoji': Style(indent_prefix='', t_prefix='📁', last_prefix='📁', include_root=True),
+    'emoji': Style(indent_prefix='', t_prefix='📁', last_prefix='📁', leaf_prefix='📄', include_root=True),
 }
