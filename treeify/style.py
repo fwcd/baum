@@ -18,4 +18,5 @@ STYLES = {
     'empty': Style(indent_prefix='', t_prefix='', last_prefix=''),
     'compact': Style(indent_prefix='│', t_prefix='├', last_prefix='└'),
     'unicode': Style(indent_prefix='│', t_prefix='├─', last_prefix='└─'),
+    'emoji': Style(indent_prefix='', t_prefix='📁', last_prefix='📁')
 }
