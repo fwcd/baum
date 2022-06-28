@@ -5,3 +5,4 @@ from treeify.style import Style
 class Options:
     style: Style
     spaces: int
+    include_root: bool
