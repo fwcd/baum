@@ -43,4 +43,6 @@ def generate_node(node: Node, opts: Options, kind: NodeKind=NodeKind.DEFAULT) ->
             yield from prefix_with(indent, list(generate_node(child, opts, child_kind)))
 
 def generate(node: Node, opts: Options) -> str:
+    if opts.debug:
+        return str(node)
     return '\n'.join(generate_node(node, opts, NodeKind.LAST if opts.include_root else NodeKind.ROOT))

@@ -6,3 +6,4 @@ class Options:
     style: Style
     spaces: int
     include_root: bool
+    debug: bool
