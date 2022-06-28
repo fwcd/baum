@@ -49,7 +49,7 @@ def expect_closing(state: ParseState):
     state.i += 1
 
 def parse_expr(state: ParseState) -> Node:
-    children = []
+    children = None
 
     skip_whitespace(state)
 
@@ -58,6 +58,7 @@ def parse_expr(state: ParseState) -> Node:
 
     # Parse children
     if state.current in OPENING:
+        children = []
         expect_opening(state)
         skip_whitespace(state)
 

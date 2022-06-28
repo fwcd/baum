@@ -17,7 +17,7 @@ def generate_node(node: Node, opts: Options, kind: NodeKind=NodeKind.DEFAULT) ->
     if kind == NodeKind.ROOT:
         prefix = ''
     else:
-        if not node.children and opts.style.leaf_prefix:
+        if node.children is None and opts.style.leaf_prefix:
             prefix = opts.style.leaf_prefix
         elif kind == NodeKind.DEFAULT:
             prefix = opts.style.t_prefix
@@ -37,9 +37,10 @@ def generate_node(node: Node, opts: Options, kind: NodeKind=NodeKind.DEFAULT) ->
 
     # Assemble lines
     yield prefix + node.name
-    for i, child in enumerate(node.children):
-        child_kind = NodeKind.LAST if i == len(node.children) - 1 else NodeKind.DEFAULT
-        yield from prefix_with(indent, list(generate_node(child, opts, child_kind)))
+    if node.children is not None:
+        for i, child in enumerate(node.children):
+            child_kind = NodeKind.LAST if i == len(node.children) - 1 else NodeKind.DEFAULT
+            yield from prefix_with(indent, list(generate_node(child, opts, child_kind)))
 
 def generate(node: Node, opts: Options) -> str:
     return '\n'.join(generate_node(node, opts, NodeKind.LAST if opts.include_root else NodeKind.ROOT))

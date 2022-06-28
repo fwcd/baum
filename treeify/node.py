@@ -1,7 +1,8 @@
 from __future__ import annotations
 from dataclasses import dataclass
+from typing import Optional
 
 @dataclass
 class Node:
     name: str
-    children: list[Node]
+    children: Optional[list[Node]]
