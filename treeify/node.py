@@ -5,4 +5,4 @@ from typing import Optional
 @dataclass
 class Node:
     name: str
-    children: Optional[list[Node]]
+    children: Optional[list[Node]] = None
