@@ -26,14 +26,14 @@ class TestGeneration(unittest.TestCase):
             the
             +- quick
             |  +- brown
-            |  \- fox
-            \- jumps'''))
+            |  \\- fox
+            \\- jumps'''))
         self.assertEqual(self.generate(tree, 'ascii-compact'), textwrap.dedent('''\
             the
             + quick
             | + brown
-            | \ fox
-            \ jumps'''))
+            | \\ fox
+            \\ jumps'''))
         self.assertEqual(self.generate(tree, 'ascii2-compact'), textwrap.dedent('''\
             the
             + quick
