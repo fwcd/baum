@@ -22,7 +22,7 @@ def generate_node(node: Node, opts: Options, kind: NodeKind=NodeKind.DEFAULT) ->
         elif kind == NodeKind.DEFAULT:
             prefix = opts.style.t_prefix
         elif kind == NodeKind.LAST:
-            prefix = opts.style.last_prefix
+            prefix = opts.style.last_prefix if opts.style.last_prefix is not None else opts.style.t_prefix
         else:
             raise ValueError(f'Unimplemented node kind: {kind}')
         prefix += ' ' * opts.spaces
