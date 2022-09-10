@@ -1,5 +1,8 @@
 # Treeify
 
+[![Typecheck](https://github.com/fwcd/treeify/actions/workflows/typecheck.yml/badge.svg)](https://github.com/fwcd/treeify/actions/workflows/typecheck.yml)
+[![Test](https://github.com/fwcd/treeify/actions/workflows/test.yml/badge.svg)](https://github.com/fwcd/treeify/actions/workflows/test.yml)
+
 A small Python script that generates a Unicode or ASCII tree from a parenthesized expression.
 
 ## Examples
