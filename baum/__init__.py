@@ -1,9 +1,9 @@
 import argparse
 
-from treeify.options import Options
-from treeify.parse import parse
-from treeify.generate import generate
-from treeify.style import STYLES
+from baum.options import Options
+from baum.parse import parse
+from baum.generate import generate
+from baum.style import STYLES
 
 def main():
     parser = argparse.ArgumentParser(description='Generates ASCII/Unicode trees')

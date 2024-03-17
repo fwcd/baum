@@ -1,4 +1,4 @@
-from treeify import main
+from baum import main
 
 if __name__ == '__main__':
     main()

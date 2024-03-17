@@ -1,10 +1,10 @@
 import unittest
 import textwrap
 
-from treeify.node import Node
-from treeify.generate import generate
-from treeify.options import Options
-from treeify.style import STYLES, Style
+from baum.node import Node
+from baum.generate import generate
+from baum.options import Options
+from baum.style import STYLES, Style
 
 class TestGeneration(unittest.TestCase):
     def test_generation(self):

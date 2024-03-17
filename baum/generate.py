@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Iterable
-from treeify.node import Node
-from treeify.options import Options
+from baum.node import Node
+from baum.options import Options
 
 def prefix_with(prefix: str, lines: list[str]) -> Iterable[str]:
     for line in lines:

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from treeify.node import Node
+from baum.node import Node
 
 OPENING = {'[', '('}
 CLOSING = {']', ')'}

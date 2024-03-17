@@ -1,7 +1,7 @@
 import unittest
 
-from treeify.node import Node
-from treeify.parse import parse
+from baum.node import Node
+from baum.parse import parse
 
 class TestParse(unittest.TestCase):
     def test_parse(self):

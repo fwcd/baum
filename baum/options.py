@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from treeify.style import Style
+from baum.style import Style
 
 @dataclass
 class Options:
