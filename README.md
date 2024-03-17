@@ -1,5 +1,6 @@
 # Baum
 
+[![PyPI](https://img.shields.io/pypi/v/baum)](https://pypi.org/project/baum)
 [![Typecheck](https://github.com/fwcd/baum/actions/workflows/typecheck.yml/badge.svg)](https://github.com/fwcd/baum/actions/workflows/typecheck.yml)
 [![Test](https://github.com/fwcd/baum/actions/workflows/test.yml/badge.svg)](https://github.com/fwcd/baum/actions/workflows/test.yml)
 
